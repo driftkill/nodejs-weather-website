@@ -13,7 +13,11 @@ const forecast = (latitude, longitude, callback) => {
             const temperature = body.current.temperature
             const feelslike = body.current.feelslike
             const precipitation = body.current.precip
-            callback(undefined, condition + '. It is currently ' + temperature + ' degrees outside and feels like ' + feelslike + ' degrees. There is ' + precipitation + '% chance of rain.')
+            const windSpeed = body.current.wind_speed
+            const windDirection = body.current.wind_dir
+            const humidity = body.current.humidity
+            const visibility = body.current.visibility
+            callback(undefined, condition + '. It is currently ' + temperature + ' degrees outside and feels like ' + feelslike + ' degrees. There is ' + precipitation + '% chance of rain. Wind is blowing at ' + windSpeed + 'kmph in ' + windDirection + ' direction. Humidity is ' + humidity + '% and Visibility is ' + visibility + 'km.')
         }
     })
 }
